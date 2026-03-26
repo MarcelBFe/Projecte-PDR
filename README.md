@@ -1,6 +1,6 @@
 # Repartiment de tasques
 
-Fase 1: Tasques i Comentaris (tasca.c i tests.c)
+## Fase 1: Tasques i Comentaris (tasca.c i tests.c)
 
 L'objectiu és tenir la unitat mínima de dades funcionant.
 
@@ -20,7 +20,7 @@ elimina_comentari() (gestió de l'índex i desplaçament).
 
 Test: Implementar tests_tasca2() (validar inserció/eliminació).
 
-Fase 2: Gestió de Carpetes i Dates (carpeta.c i tests.c)
+## Fase 2: Gestió de Carpetes i Dates (carpeta.c i tests.c)
 
 Aquesta és la fase més densa del projecte.
 
@@ -42,7 +42,7 @@ elimina_tasca() i neteja_dates_buides().
 
 Test: Implementar tests_carpeta2() i tests_carpeta3().
 
-Fase 3: L'Organitzador General (organitzador.c i tests.c)
+## Fase 3: L'Organitzador General (organitzador.c i tests.c)
 
 Gestió del nivell superior de l'aplicació.
 
@@ -62,7 +62,7 @@ elimina_carpeta() i neteja_dates_buides_carpetes().
 
 Test: Implementar tests_organitzador2().
 
-Fase 4: Interfície d'Usuari (main.c)
+## Fase 4: Interfície d'Usuari (main.c)
 
 Integració final de totes les peces.
 
