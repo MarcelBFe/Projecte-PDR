@@ -37,7 +37,7 @@ int insereix_comentari(t_tasca *tas, t_comentari com){
         }
 
         //Introduim el nou comentai e incrementem el contador
-        tas->comentari[0] = com;;
+        tas->comentaris[0] = com;;
         tas->ncomentaris++;
 
         return 0;
