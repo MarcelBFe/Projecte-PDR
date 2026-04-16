@@ -33,11 +33,11 @@ int insereix_comentari(t_tasca *tas, t_comentari com){
 
         //Fem un espai per a introduir el nou comentari
         for(i=tas->ncomentaris;i>0;i--){
-            strcpy(tas->comentaris[i],tas->comentaris[i-1]);
+            tas->comentaris[i] = tas->comentaris[i-1];
         }
 
         //Introduim el nou comentai e incrementem el contador
-        strcpy(tas->t_comentari[0],com);
+        tas->comentari[0] = com;;
         tas->ncomentaris++;
 
         return 0;
@@ -59,7 +59,7 @@ int elimina_comentari(t_tasca *tas, int num){
 
         //Amb un bucle reposicionem els comentaris fins "aixafar el que volem eliminar"
         for(i=num-1;i<tas->ncomentaris-1;i++){
-            strcpy(tas->comentaris[i],tas->comentaris[i+1]);
+            tas->comentaris[i] = tas->comentaris[i+1];
         }
 
         //Reduim el numero de comentaris
