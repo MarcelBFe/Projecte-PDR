@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
+#include "tests.h" 
 
 int main(int argc, char** argv)
 {
