@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <sring.h>
+#include <string.h>
 #include "organitzador.h"
 #include "carpeta.h"
 #include "tasca.h"
@@ -66,8 +66,8 @@ void neteja_dates_buides_carpetes(t_organitzador *org){
         n_carpetes_eliminades = neteja_dates_buides(&org->carpetes[i]);
 
         //Mostrem el resultat
-        printf("Carpeta: %s \n", org->carpetes[i].titol);
-        printf("%d dates eliminades. \n", n_carpetes_eliminades);
+        printf("Carpeta: %s\n", org->carpetes[i].titol);
+        printf("%d dates eliminades.\n", n_carpetes_eliminades);
 
     }
 
