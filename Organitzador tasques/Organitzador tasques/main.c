@@ -10,8 +10,11 @@
 #include "main.h"
 #include "tests.h" 
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
+    t_organitzador mi_org;
+    mi_org.ncarpetes = 0; // Inicializar siempre
+    
+    char opcio;
     
     printf("***********************************************\n");
     printf("*      ORGANITZADOR DE TASQUES PENDENTS       *\n");
@@ -19,9 +22,53 @@ int main(int argc, char** argv)
     printf("*       ETSETB-GREELEC: Curs 2025/2026        *\n");
     printf("***********************************************\n\n");
     
-    /* Completar codi de la funció main() */
+    mostrar_ajuda();
 
-    printf("Finalitzant l'aplicacio... Adeu!\n");
+    do {
+        printf("\nIntrodueix una nova opcio: ");
+        scanf(" %c", &opcio); 
+        while(getchar() != '\n'); 
+
+        switch(opcio) {
+            case 'n': case 'N':
+                processa_opcio_nova_carpeta(&mi_org);
+                break;
+            case 'd': case 'D':
+                processa_opcio_nova_data(&mi_org);
+                break;
+            case 't': case 'T':
+                processa_opcio_nova_tasca(&mi_org);
+                break;
+            case 'i': case 'I':
+                processa_opcio_insereix_comentari(&mi_org);
+                break;
+            case 's': case 'S':
+                processa_opcio_mostra_carpetes(&mi_org);
+                break;
+            case 'm': case 'M':
+                processa_opcio_mostra_carpeta(&mi_org);
+                break;
+            case 'e': case 'E':
+                processa_opcio_elimina_tasca(&mi_org);
+                break;
+            case 'b': case 'B':
+                processa_opcio_neteja_dates_buides(&mi_org);
+                break;
+            case 'c': case 'C':
+                processa_opcio_elimina_carpeta(&mi_org);
+                break;
+            case 'a': case 'A':
+                mostrar_ajuda();
+                break;
+            case 'f': case 'F':
+                printf("Finalitzant l'aplicacio... Adeu!\n");
+                break;
+            default:
+                printf("Opcio incorrecta. Torna a intentar-ho.\n");
+                break;
+        }
+    } while (opcio != 'f' && opcio != 'F');
+
     return (EXIT_SUCCESS);
 }
 
