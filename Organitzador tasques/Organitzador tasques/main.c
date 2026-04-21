@@ -88,6 +88,74 @@ void mostrar_ajuda()
     printf("\t[F]inalitza\n");
 }
 
+void processa_opcio_nova_carpeta(t_organitzador *org) {
+    char titol_llegit[MAX_C];
+    
+    printf("Titol de la nova carpeta: ");
+    llegeix_text(titol_llegit);
+    
+    t_carpeta *trobada = cerca_carpeta(org, titol_llegit);
+    
+    if (trobada != NULL) {
+        printf("Ja existeix la carpeta amb aquest titol.\n");
+    } 
+    else {
+        t_carpeta nova_car;
+        
+        strcpy(nova_car.titol, titol_llegit);
+        
+        nova_car.ndates = 0; 
+        
+        int resultat = insereix_nova_carpeta(org, nova_car);
+        
+        if (resultat == 0) {
+            printf("Carpeta inserida correctament.\n");
+        } else {
+            printf("Error: L'organitzador de carpetes esta ple.\n");
+        }
+    }
+}
+void processa_opcio_nova_carpeta(t_organitzador *org) {
+    char titol_llegit[MAX_C];
+    
+    printf("Titol de la nova carpeta: ");
+    llegeix_text(titol_llegit);
+    
+    t_carpeta *trobada = cerca_carpeta(org, titol_llegit);
+    
+    if (trobada != NULL) {
+        printf("Ja existeix la carpeta amb aquest titol.\n");
+    } 
+    else {
+        t_carpeta nova_car;
+        
+        strcpy(nova_car.titol, titol_llegit);
+        
+        nova_car.ndates = 0; 
+        
+        int resultat = insereix_nova_carpeta(org, nova_car);
+        
+        if (resultat == 0) {
+            printf("Carpeta inserida correctament.\n");
+        } else {
+            printf("Error: L'organitzador de carpetes esta ple.\n");
+        }
+    }
+}
+
+void processa_opcio_mostra_carpetes(t_organitzador *org) {
+    mostra_carpetes(org);
+
+void processa_opcio_mostra_carpeta(t_organitzador *org) {
+    char titol[MAX_C];
+    
+    printf("Titol de la carpeta: ");
+    llegeix_text(titol); 
+    
+    mostra_contingut_carpeta(org, titol);
+}
+
+
 void llegeix_text(char text[MAX_C])
 {
     fgets(text, MAX_C, stdin);
