@@ -5,12 +5,13 @@
 
 t_data llegeix_nova_data(){
   int num,dia,mes,any;
-  printf("Nova data (dd/mm/aaaa):)"
+  printf("Nova data (dd/mm/aaaa): ");
   scanf("%d/%d/%d",&dia,&mes,&any);
   num=(any*10000)+(mes*100)+dia;
   while(getchar() != '\n');
   t_data data;
   data.ntasques=0;
+  data.data = num;
   return data;
   
   
@@ -30,7 +31,7 @@ void mostra_data(t_data data){
 }
 t_carpeta llegeix_nova_carpeta(){
   t_carpeta nova_carpeta;
-  print("Titol de la nova carpeta: ");
+  printf("Titol de la nova carpeta: ");
   fgets(nova_carpeta.titol,MAX_C,stdin);
   if (strlen(nova_carpeta.titol) > 0 && nova_carpeta.titol[strlen(nova_carpeta.titol)-1] == '\n') {
         nova_carpeta.titol[strlen(nova_carpeta.titol)-1] = '\0';
