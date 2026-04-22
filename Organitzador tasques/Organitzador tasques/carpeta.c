@@ -5,27 +5,23 @@
 
 t_data llegeix_nova_data(){
   int num,dia,mes,any;
-  printf("Nova data (dd/mm/aaaa): ");
+  printf("Data (format: dd/mm/aaaa): ");
   scanf("%d/%d/%d",&dia,&mes,&any);
   num=(any*10000)+(mes*100)+dia;
   while(getchar() != '\n');
   t_data data;
+  data.data=num;
   data.ntasques=0;
-  data.data = num;
   return data;
-  
-  
 }
 void mostra_data(t_data data){
   int any,mes,dia,i;
   any=data.data/10000;
   dia=data.data%100;
   mes=(data.data/100)%100;
-  printf("Data:%02d/%02d/%04d",dia,mes,any);
+  printf("Data: %02d/%02d/%04d\n",dia,mes,any);
   for (i=0;i<data.ntasques;i++){
     mostra_tasca(data.pendents[i]);
-    printf("\n");
-    
   }
   
 }
@@ -53,7 +49,7 @@ void mostra_carpeta(t_carpeta car){
 t_data * cerca_data(t_carpeta *car, t_data data){
   int i;
   for (i=0;i<car->ndates;i++){
-    if(car->dates[i].data==data){
+    if(car->dates[i].data==data.data){
       return &car->dates[i];
     }
   }
