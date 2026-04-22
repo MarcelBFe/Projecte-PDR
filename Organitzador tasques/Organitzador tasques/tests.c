@@ -158,14 +158,34 @@ void tests_carpeta3() {
 
 void tests_organitzador1() {
     printf("\n--- INICI TEST ORGANITZADOR 1 ---\n");
-    //Test del Membre 1 (no implementat en aquest lliurament)
+
+    // Llegim 3 noves carpetes
+    printf("Introdueix la primera carpeta:\n");
+    t_carpeta c1 = llegeix_nova_carpeta();
+    printf("Introdueix la segona carpeta:\n");
+    t_carpeta c2 = llegeix_nova_carpeta();
+    printf("Introdueix la tercera carpeta:\n");
+    t_carpeta c3 = llegeix_nova_carpeta();
+
+    // Les inserim a un organitzador
+    t_organitzador mi_org;
+    mi_org.ncarpetes = 0;
+    insereix_nova_carpeta(&mi_org, c1);
+    insereix_nova_carpeta(&mi_org, c2);
+    insereix_nova_carpeta(&mi_org, c3);
+
+    // Mostrem el titol de totes les carpetes inserides
+    printf("\nLlista de carpetes (han de sortir en ordre alfabetic):\n");
+    mostra_carpetes(&mi_org);
+
+    // Mostrem el contingut complet d'una d'elles
+    printf("\nMostrant el contingut complet de la carpeta: %s\n", c1.titol);
+    mostra_contingut_carpeta(&mi_org, c1.titol);
+
     printf("\n--- FI TEST ORGANITZADOR 1 ---\n");
 }
 
 
-//Llegim 3 carpetes i les inserim a un organitzador. Afegim 2 dates a una carpeta,
-//eliminem una carpeta buida i mostrem les carpetes restants. Finalment cridem
-//neteja_dates_buides_carpetes per comprovar que s'eliminen les 2 dates inserides.
 void tests_organitzador2() {
     printf("\n--- INICI TEST ORGANITZADOR 2 ---\n");
 
