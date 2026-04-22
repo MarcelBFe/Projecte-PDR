@@ -61,7 +61,6 @@ int main(int argc, char** argv) {
                 mostrar_ajuda();
                 break;
             case 'f': case 'F':
-                printf("Finalitzant l'aplicacio... Adeu!\n");
                 break;
             default:
                 printf("Opcio incorrecta. Torna a intentar-ho.\n");
@@ -69,9 +68,9 @@ int main(int argc, char** argv) {
         }
     } while (opcio != 'f' && opcio != 'F');
 
+    printf("Finalitzant l'aplicacio... Adeu!\n");
     return (EXIT_SUCCESS);
 }
-
 void mostrar_ajuda()
 {
     printf("Opcions disponibles:\n");
