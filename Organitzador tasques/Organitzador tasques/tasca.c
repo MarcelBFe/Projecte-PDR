@@ -42,12 +42,14 @@ t_tasca llegeix_nova_tasca(){
 }
 
 void mostra_tasca(t_tasca tas){
+    int i;
+    
     printf("Titol de la tasca: %s\n", tas.titol);
     printf("Prioritat de la tasca: %d\n", tas.prioritat);
     
     if (tas.ncomentaris > 0){
         printf("Comentaris:\n");
-        for(int i = 0; i < tas.ncomentaris; i++){
+        for(i = 0; i < tas.ncomentaris; i++){
             printf("%d. %s\n", i + 1, tas.comentaris[i].text);
         }
     } 
