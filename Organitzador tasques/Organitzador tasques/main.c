@@ -136,11 +136,6 @@ void llegeix_text(char text[MAX_C])
         text[strlen(text)-1] = '\0';
 }
 
-
-/* ===================================================================
- * FUNCIONS DEL MEMBRE 2
- * =================================================================== */
-
 //Processa l'opcio 'D': afegeix una nova data a una carpeta ja existent.
 //Cal comprovar que la carpeta existeix i que la data no estigui repetida.
 void processa_opcio_nova_data(t_organitzador *org) {
