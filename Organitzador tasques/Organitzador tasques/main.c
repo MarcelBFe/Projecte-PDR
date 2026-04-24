@@ -12,7 +12,7 @@
 
 int main(int argc, char** argv) {
     t_organitzador mi_org;
-    mi_org.ncarpetes = 0; // Inicializar siempre
+    mi_org.ncarpetes = 0; /* Inicializar siempre */
     
     char opcio;
     
@@ -136,33 +136,33 @@ void llegeix_text(char text[MAX_C])
         text[strlen(text)-1] = '\0';
 }
 
-//Processa l'opcio 'D': afegeix una nova data a una carpeta ja existent.
-//Cal comprovar que la carpeta existeix i que la data no estigui repetida.
+/* Processa l'opcio 'D': afegeix una nova data a una carpeta ja existent.
+   Cal comprovar que la carpeta existeix i que la data no estigui repetida. */
 void processa_opcio_nova_data(t_organitzador *org) {
     char titol_carpeta[MAX_C];
 
-    //Demanem el titol de la carpeta i la busquem a l'organitzador
+    /* Demanem el titol de la carpeta i la busquem a l'organitzador */
     printf("Titol de la carpeta: ");
     llegeix_text(titol_carpeta);
 
     t_carpeta *p_car = cerca_carpeta(org, titol_carpeta);
 
-    //Si la carpeta no existeix, avisem i sortim
+    /* Si la carpeta no existeix, avisem i sortim */
     if (p_car == NULL) {
         printf("Carpeta no trobada.\n");
         return;
     }
 
-    //La carpeta existeix: llegim la nova data
+    /* La carpeta existeix: llegim la nova data */
     t_data nova_data = llegeix_nova_data();
 
-    //Comprovem que la data no existeixi ja a la carpeta
+    /* Comprovem que la data no existeixi ja a la carpeta */
     if (cerca_data(p_car, nova_data) != NULL) {
         printf("Ja existeix la data a la carpeta.\n");
         return;
     }
 
-    //Inserim la data i comprovem el resultat
+    /* Inserim la data i comprovem el resultat */
     int resultat = insereix_nova_data(p_car, nova_data);
 
     if (resultat == 0) {
@@ -173,12 +173,12 @@ void processa_opcio_nova_data(t_organitzador *org) {
 }
 
 
-//Processa l'opcio 'T': afegeix una nova tasca a una data d'una carpeta.
-//Cal comprovar que tant la carpeta com la data existeixen.
+/* Processa l'opcio 'T': afegeix una nova tasca a una data d'una carpeta.
+   Cal comprovar que tant la carpeta com la data existeixen. */
 void processa_opcio_nova_tasca(t_organitzador *org) {
     char titol_carpeta[MAX_C];
 
-    //Busquem la carpeta
+    /* Busquem la carpeta */
     printf("Titol de la carpeta: ");
     llegeix_text(titol_carpeta);
 
@@ -189,7 +189,7 @@ void processa_opcio_nova_tasca(t_organitzador *org) {
         return;
     }
 
-    //Llegim la data i la busquem dins la carpeta
+    /* Llegim la data i la busquem dins la carpeta */
     t_data data_llegida = llegeix_nova_data();
     t_data *p_data = cerca_data(p_car, data_llegida);
 
@@ -198,7 +198,7 @@ void processa_opcio_nova_tasca(t_organitzador *org) {
         return;
     }
 
-    //Llegim la nova tasca i la inserim a la data
+    /* Llegim la nova tasca i la inserim a la data */
     t_tasca nova_tas = llegeix_nova_tasca();
     int resultat = insereix_nova_tasca(p_data, nova_tas);
 
@@ -210,13 +210,13 @@ void processa_opcio_nova_tasca(t_organitzador *org) {
 }
 
 
-//Processa l'opcio 'I': afegeix un comentari a una tasca existent.
-//Cal que existeixin la carpeta, la data i la tasca.
+/* Processa l'opcio 'I': afegeix un comentari a una tasca existent.
+   Cal que existeixin la carpeta, la data i la tasca. */
 void processa_opcio_insereix_comentari(t_organitzador *org) {
     char titol_carpeta[MAX_C];
     char titol_tasca[MAX_C];
 
-    //Busquem la carpeta
+    /* Busquem la carpeta */
     printf("Titol de la carpeta: ");
     llegeix_text(titol_carpeta);
 
@@ -227,7 +227,7 @@ void processa_opcio_insereix_comentari(t_organitzador *org) {
         return;
     }
 
-    //Busquem la data dins la carpeta
+    /* Busquem la data dins la carpeta */
     t_data data_llegida = llegeix_nova_data();
     t_data *p_data = cerca_data(p_car, data_llegida);
 
@@ -236,7 +236,7 @@ void processa_opcio_insereix_comentari(t_organitzador *org) {
         return;
     }
 
-    //Busquem la tasca dins la data
+    /* Busquem la tasca dins la data */
     printf("Titol de la tasca: ");
     llegeix_text(titol_tasca);
 
@@ -247,7 +247,7 @@ void processa_opcio_insereix_comentari(t_organitzador *org) {
         return;
     }
 
-    //Llegim el comentari i l'inserim a la tasca
+    /* Llegim el comentari i l'inserim a la tasca */
     t_comentari nou_com = llegeix_nou_comentari();
     int resultat = insereix_comentari(p_tas, nou_com);
 
@@ -259,13 +259,13 @@ void processa_opcio_insereix_comentari(t_organitzador *org) {
 }
 
 
-//Processa l'opcio 'E': elimina una tasca d'una data d'una carpeta.
-//Cal que existeixin la carpeta, la data i la tasca.
+/* Processa l'opcio 'E': elimina una tasca d'una data d'una carpeta.
+   Cal que existeixin la carpeta, la data i la tasca. */
 void processa_opcio_elimina_tasca(t_organitzador *org) {
     char titol_carpeta[MAX_C];
     char titol_tasca[MAX_C];
 
-    //Busquem la carpeta
+    /* Busquem la carpeta */
     printf("Titol de la carpeta: ");
     llegeix_text(titol_carpeta);
 
@@ -276,7 +276,7 @@ void processa_opcio_elimina_tasca(t_organitzador *org) {
         return;
     }
 
-    //Busquem la data dins la carpeta
+    /* Busquem la data dins la carpeta */
     t_data data_llegida = llegeix_nova_data();
     t_data *p_data = cerca_data(p_car, data_llegida);
 
@@ -285,7 +285,7 @@ void processa_opcio_elimina_tasca(t_organitzador *org) {
         return;
     }
 
-    //Demanem el titol de la tasca i l'eliminem
+    /* Demanem el titol de la tasca i l'eliminem */
     printf("Titol de la tasca: ");
     llegeix_text(titol_tasca);
 
@@ -299,19 +299,19 @@ void processa_opcio_elimina_tasca(t_organitzador *org) {
 }
 
 
-//Processa l'opcio 'B': neteja les dates buides de totes les carpetes.
-//La funcio neteja_dates_buides_carpetes ja mostra el titol i el nombre
-//de dates eliminades de cada carpeta, per tant aqui nomes cal cridar-la.
+/* Processa l'opcio 'B': neteja les dates buides de totes les carpetes.
+   La funcio neteja_dates_buides_carpetes ja mostra el titol i el nombre
+   de dates eliminades de cada carpeta, per tant aqui nomes cal cridar-la. */
 void processa_opcio_neteja_dates_buides(t_organitzador *org) {
     neteja_dates_buides_carpetes(org);
 }
 
 
-//Processa l'opcio 'C': elimina una carpeta sencera de l'organitzador.
+/* Processa l'opcio 'C': elimina una carpeta sencera de l'organitzador. */
 void processa_opcio_elimina_carpeta(t_organitzador *org) {
     char titol_carpeta[MAX_C];
 
-    //Demanem el titol de la carpeta i l'eliminem
+    /* Demanem el titol de la carpeta i l'eliminem */
     printf("Titol de la carpeta: ");
     llegeix_text(titol_carpeta);
 
